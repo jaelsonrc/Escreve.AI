@@ -98,4 +98,4 @@ Em `extension/package.json`:
 
 ## Licença
 
-Defina uma licença antes de subir o projeto publicamente. Atualmente não há um arquivo de licença na raiz do repositório.
+MIT
