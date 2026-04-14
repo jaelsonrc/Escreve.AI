@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escreve.AI - Configurações</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1>✨ Escreve.AI</h1>
+      <p class="subtitle">Assistente de Escrita com IA</p>
+    </header>
+
+    <form id="settings-form">
+      <div class="form-group">
+        <label for="provider">Provider</label>
+        <select id="provider" name="provider">
+          <option value="openai">OpenAI</option>
+          <option value="openrouter">OpenRouter</option>
+          <option value="ollama">Ollama (Local)</option>
+          <option value="custom">API Custom</option>
+        </select>
+      </div>
+
+      <div class="form-group" id="api-key-group">
+        <label for="api-key">API Key</label>
+        <input type="password" id="api-key" name="apiKey" placeholder="sk-..." autocomplete="off">
+        <span class="hint">Necessária para OpenAI e OpenRouter</span>
+      </div>
+
+      <div class="form-group" id="base-url-group">
+        <label for="base-url">Base URL</label>
+        <input type="text" id="base-url" name="baseUrl" readonly>
+        <span class="hint">URL padrão do provider</span>
+      </div>
+
+      <div class="form-group" id="model-group">
+        <label for="model">Modelo</label>
+        <input type="text" id="model" name="model" placeholder="gpt-4o">
+        <span class="hint">ID do modelo (ex: gpt-4o, claude-3.5-sonnet)</span>
+      </div>
+
+      <div class="form-group">
+        <label for="custom-instructions">Instruções Personalizadas</label>
+        <textarea id="custom-instructions" name="customInstructions" rows="3" placeholder="Ex: Use tom formal, máximo 100 palavras..."></textarea>
+        <span class="hint">Instruções extras para a IA seguir</span>
+      </div>
+
+      <div class="form-actions">
+        <button type="button" id="test-btn" class="btn btn-secondary">Testar Conexão</button>
+        <button type="submit" class="btn btn-primary">Salvar</button>
+      </div>
+
+      <div id="status" class="status hidden"></div>
+    </form>
+
+    <footer class="footer">
+      <p>Dica: Clique em ✨ em qualquer campo de texto para gerar conteúdo!</p>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

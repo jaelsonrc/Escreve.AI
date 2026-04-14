@@ -1,0 +1,36 @@
+{
+  "manifest_version": 3,
+  "name": "Escreve.AI - Assistente de Escrita",
+  "version": "1.0.0",
+  "description": "Gerador de texto contextual com IA para qualquer campo de texto",
+  "permissions": [
+    "storage",
+    "activeTab",
+    "scripting"
+  ],
+  "host_permissions": [
+    "*://api.openai.com/*",
+    "*://api.openrouter.ai/*",
+    "*://localhost:11434/*"
+  ],
+  "action": {
+    "default_popup": "src/popup/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon16.png",
+      "48": "assets/icons/icon48.png",
+      "128": "assets/icons/icon128.png"
+    }
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["src/content/content.js"],
+      "css": ["src/content/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "background": {
+    "service_worker": "src/background/service-worker.js",
+    "type": "module"
+  }
+}
